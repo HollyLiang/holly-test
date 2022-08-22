@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "ea29d049-0187-4fbd-9f6a-606686946b06"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -102,6 +105,37 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "hy-power": {
+      "projectType": "library",
+      "root": "projects/hy-power",
+      "sourceRoot": "projects/hy-power/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/hy-power/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/hy-power/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/hy-power/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/hy-power/src/test.ts",
+            "tsConfig": "projects/hy-power/tsconfig.spec.json",
+            "karmaConfig": "projects/hy-power/karma.conf.js"
           }
         }
       }
